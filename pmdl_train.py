@@ -45,8 +45,8 @@ def generate(samples, lang=DEFAULT_LANGUAGE):
     check_snowboy(cut, enroll)
 
     errors = []
-    for num, sample in enumerate((BytesIO(x) for x in samples)):
-        _, data = wavfile.read(sample)
+    for sample in samples:
+        _, data = wavfile.read(BytesIO(sample))
         data_cut = cut.CutTemplate(data.tobytes())
         enroll_ans = enroll.RunEnrollment(data_cut)
         errors.append(ENROLL_ERRORS.get(enroll_ans))

@@ -12,6 +12,7 @@ app = Flask(__name__, static_url_path='')
 
 @app.route('/api/v1/train/', methods=['POST'])
 @app.route('/api/v1/train', methods=['POST'])
+@app.route('/', methods=['POST'])
 def train():
     try:
         data = json.loads(request.data)
