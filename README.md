@@ -1,5 +1,7 @@
 [snowboy-pmdls](https://github.com/Aculeasis/snowboy-pmdls)
 ============
+[![Docker Pulls](https://img.shields.io/docker/pulls/aculeasis/snowboy-pmdls.svg)](https://hub.docker.com/r/aculeasis/snowboy-pmdls/)
+
 [Snowboy own personal models trainer](https://github.com/seasalt-ai/snowboy) in Docker container.
 
 ### Usage
