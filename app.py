@@ -53,5 +53,5 @@ def make_sample_exception(e):
 
 
 if __name__ == "__main__":
-    # http://127.0.0.1:8888/api/v1/train/
+     http://130.61.61.97/:8888/api/v1/train/
     app.run(host='0.0.0.0', port=8888, threaded=False)
