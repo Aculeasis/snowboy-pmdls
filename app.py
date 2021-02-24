@@ -10,6 +10,19 @@ from pmdl_train import SamplesException, generate
 app = Flask(__name__, static_url_path='')
 
 
+@app.route('/api/v1/train/', methods=['GET'])
+@app.route('/api/v1/train', methods=['GET'])
+@app.route('/', methods=['GET'])
+def hello():
+    return make_response('<br><br>'.join(
+        ['Hello',
+         'Server accepts only POST',
+         'See https://github.com/Aculeasis/snowboy-pmdls/blob/master/README.md'
+         ]),
+        405
+    )
+
+
 @app.route('/api/v1/train/', methods=['POST'])
 @app.route('/api/v1/train', methods=['POST'])
 @app.route('/', methods=['POST'])
