@@ -5,13 +5,14 @@ ARG SNOWBOY_COMMIT="80e8038cd43c28dacda123312604236b00145a1c"
 ARG RUNTIME_PACKAGES="libpython2.7 python2"
 ARG BUILD_PACKAGES="curl git ca-certificates"
 ARG PIP_PACKAGES="scipy==1.2.3 flask==1.1.2"
+ARG PIP_URL="https://bootstrap.pypa.io/2.7/get-pip.py"
 
 RUN apt-get update -y && \
     apt-get -y install --no-install-recommends $RUNTIME_PACKAGES && \
     apt-mark manual $(apt-mark showauto) && \
     apt-get -y install --no-install-recommends $BUILD_PACKAGES && \
     cd /opt && \
-    curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py && python2 get-pip.py && rm get-pip.py && \
+    curl $PIP_URL --output get-pip.py && python2 get-pip.py && rm get-pip.py && \
     pip install $PIP_PACKAGES && \
     git clone $SNOWBOY_GIT snowboy && git -C snowboy checkout $SNOWBOY_COMMIT && \
     mkdir -p pmdl/lng && cp snowboy/lib/ubuntu64/pmdl/* pmdl/ && cp -r snowboy/resources/pmdl/* pmdl/lng && \
